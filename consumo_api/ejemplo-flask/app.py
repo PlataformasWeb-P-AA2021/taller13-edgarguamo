@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return "<p>Hola Mundo !</p>"
 
 
 @app.route("/losestudiantes")
@@ -17,8 +17,7 @@ def los_estudiantes():
             auth=('user', 'pass'))
     estudiantes = json.loads(r.content)['results']
     numero_estudiantes = json.loads(r.content)['count']
-    return render_template("losestudiantes.html", estudiantes=estudiantes,
-    numero_estudiantes=numero_estudiantes)
+    return render_template("losestudiantes.html", estudiantes=estudiantes)
 
 
 @app.route("/lostelefonos")
